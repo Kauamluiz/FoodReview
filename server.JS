@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import router from './routes/routes.js'
 import connection from './config/db.js';
 
-// carregar as configuracao
+// carregar as configuracoes
 dotenv.config({ path: './config/config.env'});
 
 // Rodar o Servidor Express
