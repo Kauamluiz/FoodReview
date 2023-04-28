@@ -2,7 +2,7 @@ import { Sequelize } from"Sequelize";
 import connection from '../config/db.js';
 
 const User = connection.define(
-    'User',
+    'user',
     {
         id: {
             type: Sequelize.INTEGER,
@@ -29,7 +29,7 @@ const User = connection.define(
         admin: {
             type: Sequelize.BOOLEAN,
             allowNull: false
-        }
+        },
     }
 );
 

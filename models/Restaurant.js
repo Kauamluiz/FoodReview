@@ -2,7 +2,7 @@ import { Sequelize } from"Sequelize";
 import connection from '../config/db.js';
 
 const Restaurant = connection.define(
-    'Restaurant',
+    'restaurant',
     {
         id: {
             type: Sequelize.INTEGER,
@@ -12,20 +12,21 @@ const Restaurant = connection.define(
         },
         name: {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: false
         },
         type: {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: false
         },
         description: {
             type: Sequelize.STRING,
+            allowNull: true
         },
         address: {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: false
         },
     }
 );
 
-export default Restaurant;
+export default  Restaurant;
