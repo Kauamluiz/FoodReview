@@ -4,16 +4,39 @@ import React, { useState } from 'react';
 import Logo from '../assets/images/logo.png';
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
+import api from "../api";
 
 const Login = ({ navigation }) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { height } = useWindowDimensions();
-    const onLoginPressed = () => {
-        alert("Logged in with User " + email + " and " + password);
-        setEmail('');
-        setPassword('');
+    const onLoginPressed = async () => {
+
+        try{
+                
+            const data = await api.post('/login', {
+                email: email,
+                password: password
+            });
+
+            if(data.status === 200){
+
+                console.log(data)
+                alert(data.data.message)
+                localStorage.setItem('token', data.data.token)
+
+            }else{
+
+                console.log(data)
+
+            }
+
+        }catch (error){
+            
+            console.log(error);
+
+        }
 
     }
 

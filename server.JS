@@ -4,6 +4,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import router from './routes/routes.js'
 import connection from './config/db.js';
+import cors from 'cors';
 
 // carregar as configuracoes
 dotenv.config({ path: './config/config.env'});
@@ -25,6 +26,7 @@ const testConn = async() => {
 
 testConn();
 
+server.use(cors());
 server.use(bodyParser.urlencoded({extended: true}));
 server.use(bodyParser.json());
 server.use(router);
