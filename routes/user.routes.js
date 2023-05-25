@@ -1,12 +1,33 @@
 
 import express from 'express';
 import User from '../models/User.js'
+import jwt from 'jsonwebtoken';
 
+const verifyToken = (token, res) => {
+    jwt.verify(
+        token,
+        process.env.JWT_SECRET,
+        (err, authData) => {
+            if (err) {
+
+                res.sendStatus(403)
+
+            } else {
+
+                res.json({authData})
+
+            };
+        }
+    )
+};
 
 const user = express.Router();
 
 //rota para lista de usuario
-user.get('/', (req, res) => res.send("Rota de usuario"));
+user.get('/verify', (req, res) => {
+    const token = req.headers['token'];
+    const authData = verifyToken(token, res);
+});
 
 //rota para registro de usuario 
 user.post('/register', async (req, res) => {
