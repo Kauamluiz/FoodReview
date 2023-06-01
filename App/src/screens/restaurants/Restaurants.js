@@ -11,4 +11,10 @@ const Restaurants = ({navigation}) => {
 
 export default Restaurants
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({view: {
+  backgroundColor: '#FFFFFF',
+  alignItems: 'center',
+  padding: 20,
+  width: '100%',
+  height: '100%'
+  },});
