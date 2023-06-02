@@ -28,7 +28,7 @@ const Review = connection.define(
                 key: 'id'
             }
         },
-        Comment: {
+        comment: {
             type: Sequelize.STRING,
             allowNull: false
         },
